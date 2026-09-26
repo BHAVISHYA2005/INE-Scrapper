@@ -7,6 +7,18 @@
 - **Build Command:** `npm ci`
 - **Start Command:** `npm run start`
 
+## Vercel frontend
+
+- **Root Directory:** `frontend`
+- **Build Command:** `npm ci && npm run build`
+- **Output Directory:** `dist`
+
+## Frontend environment variables
+
+Set this in Vercel:
+
+- `VITE_API_BASE_URL` — the public URL of your Render backend, for example `https://your-backend.onrender.com`
+
 ## Environment variables
 
 Set these in Render:
