@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/scraper/index.js",
   "scripts": {
+    "start": "node src/server.js",
     "scrape": "node src/cli/scrape.js",
     "search": "node src/cli/scrape.js search"
   },
