@@ -13,7 +13,10 @@
   "license": "ISC",
   "description": "Product price tracker scraper for the INE Store demo storefront.",
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "cheerio": "^1.2.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "playwright": "^1.63.0"
   }
 }
