@@ -195,6 +195,40 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json({ limit: '1mb' }));
 
+app.get('/', (request, response) => {
+  response.type('html').send(`
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INE Scrapper API</title>
+        <style>
+          body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: Inter, Arial, sans-serif; background: #0b1020; color: #e2e8f0; }
+          .card { max-width: 720px; margin: 24px; padding: 28px; border: 1px solid rgba(148,163,184,.18); border-radius: 20px; background: rgba(17,24,46,.9); box-shadow: 0 24px 80px rgba(2,6,23,.35); }
+          h1 { margin: 0 0 12px; }
+          p, li { color: #94a3b8; line-height: 1.6; }
+          code, a { color: #c4b5fd; }
+          ul { padding-left: 20px; }
+        </style>
+      </head>
+      <body>
+        <div class="card">
+          <h1>INE Scrapper backend is running</h1>
+          <p>This Render service is the API backend, not the dashboard UI.</p>
+          <ul>
+            <li>Health: <a href="/health">/health</a></li>
+            <li>Search: <code>/api/search?q=product</code></li>
+            <li>Tracked products: <code>/api/tracked-products</code></li>
+            <li>CSV export: <code>/api/export.csv</code></li>
+          </ul>
+          <p>The dashboard should be deployed separately on Vercel and pointed at this backend with <code>VITE_API_BASE_URL</code>.</p>
+        </div>
+      </body>
+    </html>
+  `);
+});
+
 app.get('/health', (request, response) => {
   response.json({ ok: true, service: 'ine-scrapper', baseUrl });
 });
